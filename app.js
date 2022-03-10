@@ -36,10 +36,10 @@ app.get('/compose', function(req, res) {
 });
 
 app.post('/compose', function(req, res) {
-  // let trunBody = req.body.postBody.substring(0,99) + "...");
   const post = {
     title: req.body.postTitle,
-    content: req.body.postBody
+    content: req.body.postBody,
+    link: _.kebabCase(req.body.postTitle)
   };
   posts.push(post);
   res.redirect('/');
